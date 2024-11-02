@@ -16,7 +16,7 @@ router.get('/', async (_, res) => {
 router.post('/', async (req, res) => {
   const { nombre } = req.body
 
-  const categoria = await buscarCategoria(nombre)
+  const categoria = await buscarCategoriaByNombre(nombre)
   if (categoria) {
     return res.status(400).json({ mensaje: 'La categoría ya existe' })
   }
@@ -30,29 +30,61 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id', async (req, res) => {
   const { id } = req.params
   const body = req.body
+  // TODO: falta validar si el nombre de la nueva categoria existe
 
-  res.json({
-    mensaje: 'Se actualizó la categoría con éxito',
-    data: body,
-    id
-  })
+  const categoria = await buscarCategoriaById(id)
+  console.log(categoria)
+  if (!categoria) {
+    return res.status(400).json({ mensaje: 'La categoría no existe' })
+  }
+
+  try {
+    await pool.query('UPDATE categorias SET nombre = ? WHERE id = ?', [body.nombre, id])
+    res.status(201).json({
+      mensaje: 'Se actualizó la categoría con éxito',
+      data: body
+    })
+  } catch (error) {
+    console.log('Error al actualizar categoría: ', error)
+    res.status(505).send('Error al actualizar categorias')
+  }
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params
 
-  res.json({
-    mensaje: 'Se eliminó la categoría con éxito',
-    id
-  })
+  const categoria = await buscarCategoriaById(id)
+  console.log(categoria)
+  if (!categoria) {
+    return res.status(400).json({ mensaje: 'La categoría no existe' })
+  }
+
+  try {
+    await pool.query('DELETE FROM categorias WHERE id = ?', id)
+    res.status(200).json({
+      mensaje: 'Se eliminó la categoría con éxito'
+    })
+  } catch (error) {
+    console.log('Error al eliminar categoría: ', error)
+    res.status(505).send('Error al eliminar categorias')
+  }
 })
 
-async function buscarCategoria (nombre) {
+async function buscarCategoriaByNombre (nombre) {
   try {
     const [result] = await pool.query('SELECT * FROM categorias WHERE nombre = ?', nombre)
+    return result.length > 0
+  } catch (error) {
+    console.log('Error al buscar categoría: ', error)
+  }
+}
+
+async function buscarCategoriaById (id) {
+  try {
+    const [result] = await pool.query('SELECT * FROM categorias WHERE id = ?', id)
     return result.length > 0
   } catch (error) {
     console.log('Error al buscar categoría: ', error)
