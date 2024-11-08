@@ -1,1 +1,24 @@
-<p>Hola {{ this.globalText.titulo }}!</p>
+<app-header />
+<app-slider />
+<div id="home">
+  <div class="center">
+    <div id="contenido">
+      <h1 class="subheader">NUESTRAS CATEGORIAS</h1>
+      <div id="listCards">
+        <div class="colLista">
+          <div class="cardd">
+            <div>
+              <img src="../../../../assets/categoria.png" alt="comida" />
+            </div>
+            <div class="contenidooo">
+              <h3>categoria</h3>
+              <button (click)="navegarProductos()">
+                Ver sus productos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
