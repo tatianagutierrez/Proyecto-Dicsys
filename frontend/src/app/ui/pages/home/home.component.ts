@@ -25,14 +25,14 @@ export class HomeComponent {
   ) {
     this.categoriasService.getCategorias().subscribe(result => {
       this.categorias = result;
-    })
+    })  
   }
 
-  navigateProducts() {
+  // TODO: Enviar la categoria
+  navigateProducts(categoria: any) {
     this.urlNavigateService.navigateUrlData(this.globalUrl.products, {
       state: {
-        nombre: 'Tatiana',
-        apellido: 'Gutierrez'
+        category: categoria,
       }
     })
   }

@@ -2,7 +2,7 @@
 <div class="center">
   <div id="contenido">
     <div class="Productos">
-      <h1>{{ globalText.products }} de: {{ nombre }}</h1>
+      <h1>{{ globalText.products }} de: {{ category.nombre }}</h1>
       <div id="listProductos">
         <article
           class="item-prod"
@@ -20,7 +20,7 @@
           ><br />
           <span class="stock-prod">{{ globalText.stock }}: 13</span><br />
           <span
-            ><b>- {{ globalText.category }}: {{ nombre }}</b></span
+            ><b>- {{ globalText.category }}: {{ category.nombre }}</b></span
           >
           <button>+ {{ globalText.cart }}</button>
         </article>

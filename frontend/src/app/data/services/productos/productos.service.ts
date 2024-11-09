@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductosService {
 
-  private url = 'http://localhost:4000/api/productos'
+  private url = 'http://localhost:4000/api/productos/'
 
   constructor(private http:HttpClient) { }
 

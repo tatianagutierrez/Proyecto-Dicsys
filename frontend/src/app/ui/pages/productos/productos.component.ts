@@ -14,8 +14,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './productos.component.css'
 })
 export class ProductosComponent {
-  public nombre
-  public apellido
+  public category
   productos: any
 
   constructor(
@@ -28,12 +27,10 @@ export class ProductosComponent {
 
     if (navigability && navigability.extras && navigability.extras.state) {
       const data = navigability.extras.state
-      this.nombre = data['nombre'];
-      this.apellido = data['apellido']
-    }
+      this.category = data['category']; 
+    } 
 
-    // TODO: ID dinamico
-    this.productosService.getProductosByCategoria(1).subscribe(result => {
+    this.productosService.getProductosByCategoria(this.category.id).subscribe(result => {
       this.productos = result
     })
 
