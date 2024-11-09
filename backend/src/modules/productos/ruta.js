@@ -13,6 +13,18 @@ router.get('/', async (_, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  const idCategoria = req.params.id
+
+  try {
+    const [result] = await pool.query('SELECT * FROM productos WHERE id_categoria = ?', [idCategoria])
+    res.send(result)
+  } catch (error) {
+    console.log('Error al listar: ', error)
+    res.status(404).send('Error al listar productos')
+  }
+})
+
 router.post('/', async (req, res) => {
   const { nombre, descripcion, fecha_vencimiento: fechaVencimiento, precio, stock, id_categoria: idCategoria } = req.body
   const body = req.body
