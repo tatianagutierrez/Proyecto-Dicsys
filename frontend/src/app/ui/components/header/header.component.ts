@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GlobalText } from '../../../data/text';
+import { GlobalUrl } from '../../../data/util';
 import { UrlNavigateService } from '../../../data/services/url-navigate.service';
 
 
@@ -13,10 +14,11 @@ import { UrlNavigateService } from '../../../data/services/url-navigate.service'
 export class HeaderComponent {
   constructor(
     public globalText: GlobalText,
-    public urlNavigateService: UrlNavigateService
+    public urlNavigateService: UrlNavigateService,
+    public globalUrl: GlobalUrl
   ) {}
 
-  navegarHome() {
-    this.urlNavigateService.navegarURL('/home')
+  navigateHome() {
+    this.urlNavigateService.navigateURL(this.globalUrl.home)
   }
 }

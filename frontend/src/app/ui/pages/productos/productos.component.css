@@ -1,0 +1,12 @@
+.center {
+  width: 75%;
+  margin: 0px auto;
+}
+
+
+#contenido {
+  width: 100%;
+  float: left;
+  min-height: 450px;
+  margin-right: 20px;
+}

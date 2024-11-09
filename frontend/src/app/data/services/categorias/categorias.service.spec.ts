@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { UrlNavigateService } from './url-navigate.service';
 
-describe('UrlNavigateService', () => {
-  let service: UrlNavigateService;
+import { CategoriasService } from './categorias.service';
+
+describe('CategoriasService', () => {
+  let service: CategoriasService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UrlNavigateService);
+    service = TestBed.inject(CategoriasService);
   });
 
   it('should be created', () => {

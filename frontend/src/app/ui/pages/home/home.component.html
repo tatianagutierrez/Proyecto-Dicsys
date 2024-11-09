@@ -6,13 +6,13 @@
       <h1 class="subheader">NUESTRAS CATEGORIAS</h1>
       <div id="listCards">
         <div class="colLista">
-          <div class="cardd">
+          <div class="cardd" *ngFor="let categoria of categorias">
             <div>
-              <img src="../../../../assets/categoria.png" alt="comida" />
+              <img src="retrowave.jpg" alt="comida" />
             </div>
             <div class="contenidooo">
-              <h3>categoria</h3>
-              <button (click)="navegarProductos()">
+              <h3>{{ categoria.nombre }}</h3>
+              <button (click)="navigateProducts()">
                 Ver sus productos
               </button>
             </div>
@@ -22,3 +22,4 @@
     </div>
   </div>
 </div>
+<app-footer />

@@ -1,6 +1,7 @@
 export class GlobalText {
-  public titulo: string = 'Dicsys Academy'
-  public categoria: string = 'Categoria'
+  public title: string = 'Dicsys Academy'
+  public category: string = 'Categoria'
   public login: string = 'Login'
-  public carrito: string = 'Carrito'
+  public cart: string = 'Carrito'
+  public footer: string = 'Desarrollado por Tatiana Gutierrez'
 }                         

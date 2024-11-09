@@ -1,3 +1,31 @@
 <app-header />
-<h1>{{ nombre }}</h1>
-<h1>{{ apellido }}</h1>
+<div class="center">
+  <div id="contenido">
+    <div class="Productos">
+      <h1>Productos de: {{ nombre }}</h1>
+      <div id="listProductos">
+        <article
+          class="item-prod"
+          id="article-template"
+          *ngFor = "let prod of productos"
+        >
+          <div class="image-wrap">
+            <img src="producto.jpg" alt="comida" />
+          </div>
+          <h2>{{ prod.nombre }}</h2>
+          <div class="cont-spanProd">
+            <span class="span-cardProd">Descripcion:</span><br />
+          </div>
+          <span class="precio-prod">Precio: {{ prod.precio }}</span
+          ><br />
+          <span class="stock-prod">Stock: 13</span><br />
+          <span
+            ><b>- Categoria: {{ nombre }}</b></span
+          >
+          <button>+ Carrito</button>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer />
