@@ -1,7 +1,15 @@
 export class GlobalText {
   public title: string = 'Dicsys Academy'
-  public category: string = 'Categoria'
+  public category: string = 'Categoría'
   public login: string = 'Login'
   public cart: string = 'Carrito'
-  public footer: string = 'Desarrollado por Tatiana Gutierrez'
+  public welcome: string = 'Bienvenido a Kiosco Dicsyanos'
+  public schedule: string = 'Lunes a viernes de 9 a 18'
+  public description: string = 'Descripción'
+  public price: string = 'Precio'
+  public stock: string = 'Stock'
+  public products: string = 'Productos'
+  public footer: string = 'Desarrollado por Tatiana Gutiérrez'
+  public viewProducts: string = 'Ver sus productos'
+  public categoryTitle: string = 'NUESTRAS CATEGORÍAS'
 }                         

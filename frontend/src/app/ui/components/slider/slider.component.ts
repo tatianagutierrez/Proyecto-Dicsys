@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalText } from '../../../data/text';
 
 @Component({
   selector: 'app-slider',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './slider.component.css'
 })
 export class SliderComponent {
+
+  constructor( public globalText: GlobalText ) {}
 
 }

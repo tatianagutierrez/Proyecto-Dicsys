@@ -3,7 +3,7 @@
 <div id="home">
   <div class="center">
     <div id="contenido">
-      <h1 class="subheader">NUESTRAS CATEGORIAS</h1>
+      <h1 class="subheader">{{ globalText.categoryTitle }}</h1>
       <div id="listCards">
         <div class="colLista">
           <div class="cardd" *ngFor="let categoria of categorias">
@@ -13,7 +13,7 @@
             <div class="contenidooo">
               <h3>{{ categoria.nombre }}</h3>
               <button (click)="navigateProducts()">
-                Ver sus productos
+                {{ globalText.viewProducts }}
               </button>
             </div>
           </div>
