@@ -17,6 +17,8 @@ import { CategoriasService } from '../../../data/services/categorias/categorias.
 })
 export class HomeComponent {
   categorias: any
+  imagenDefault = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQunrIhOSUUk2Qko66dLjww5zyenkkguPB_XA&s'
+
   constructor(
     public globalText: GlobalText,
     public urlNavigateService: UrlNavigateService,
@@ -28,7 +30,6 @@ export class HomeComponent {
     })  
   }
 
-  // TODO: Enviar la categoria
   navigateProducts(categoria: any) {
     this.urlNavigateService.navigateUrlData(this.globalUrl.products, {
       state: {

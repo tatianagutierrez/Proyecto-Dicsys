@@ -1,72 +1,84 @@
-#listCards {
+.intro {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.main-title {
+  font-family: "Irish Grover", system-ui;
+  font-size: 4rem;
+  color: #FF4500;
+}
+
+.sub-title {
+  font-size: 1.2rem;
+  color: #666666;
+}
+
+/* Tarjetas */
+.card-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   gap: 20px;
-  margin: 50px;
-  margin-top: -26px;
-}
-
-#contenido {
-  width: 100%;
-  float: left;
-  min-height: 450px;
-  margin-right: 20px;
-}
-
-.center {
-  width: 75%;
-  margin: 0px auto;
-}
-
-.subheader {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 5px;
-  border: none;
-  margin-top: 15px;
-  margin-bottom: 0px;
-}
-
-.colLista {
-  display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 10%;
 }
 
 .cardd {
+  font-family: "IBM Plex Mono, sans-serif";
   width: 75%;
+  background-color: #edd2b4;
   max-width: 260px;
   max-height: 308px;
   margin: 50px;
-  border-radius: 4px;
+  padding: 24px;
+  border-radius: 0.4rem;
   overflow: hidden;
   transition: all 100ms ease;
-  border: 1px solid rgb(164, 25, 25);
   cursor: default;
-  border-radius: 10px;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
 }
 
-.cardd:hover {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-  transform: translate(-3%);
-}
 
 .cardd img {
   width: 100%;
   height: 210px;
   object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.cardd .contenidooo {
-  text-align: center;
+.card-nombre-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.cardd button {
-  color: white;
-  border: 1px rgba(0, 0, 0, 0.2);
-  background: #00438e;
-  padding: 5px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+
+.card-nombre-boton h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 10px;
+}
+
+.card-nombre-boton button {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 22%;
   cursor: pointer;
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  box-shadow: 0px 0px 0px 1px black inset;
+}
+
+
+.card-nombre-boton button:hover {
+  background-color: #f5a804;
+}
+
+.cardd:hover {
+  transform: scale(1.05);
 }

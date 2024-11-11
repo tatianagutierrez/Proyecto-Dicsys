@@ -1,22 +1,19 @@
 <app-header />
 <app-slider />
 <div id="home">
-  <div class="center">
-    <div id="contenido">
-      <h1 class="subheader">{{ globalText.categoryTitle }}</h1>
-      <div id="listCards">
-        <div class="colLista">
-          <div class="cardd" *ngFor="let categoria of categorias">
-            <div>
-              <img src="retrowave.jpg" alt="comida" />
-            </div>
-            <div class="contenidooo">
-              <h3>{{ categoria.nombre }}</h3>
-              <button (click)="navigateProducts(categoria)">
-                {{ globalText.viewProducts }}
-              </button>
-            </div>
-          </div>
+  <div class="intro">
+    <h1 class="main-title">{{ globalText.categoryTitle }}</h1>
+  </div>
+
+  <div id="contenido">
+    <div class="card-container">
+      <div class="cardd" *ngFor="let categoria of categorias">
+        <img [src]="categoria.ruta_imagen ? categoria.ruta_imagen : imagenDefault" alt="comida" />
+        <div class="card-nombre-boton">
+          <h3>{{ categoria.nombre }}</h3>
+          <button (click)="navigateProducts(categoria)">
+            {{ globalText.viewProducts }}
+          </button>
         </div>
       </div>
     </div>

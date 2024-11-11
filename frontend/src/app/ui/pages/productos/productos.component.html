@@ -10,7 +10,7 @@
           *ngFor = "let prod of productos"    
         >
           <div class="image-wrap">
-            <img src="producto.jpg" alt="comida" />
+            <img [src]="prod.ruta_imagen ? prod.ruta_imagen : imagenDefault" alt="comida" />
           </div>
           <h2>{{ prod.nombre }}</h2>
           <div class="cont-spanProd">
@@ -28,4 +28,3 @@
     </div>
   </div>
 </div>
-<app-footer />

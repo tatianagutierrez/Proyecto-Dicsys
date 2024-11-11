@@ -16,7 +16,8 @@ import { NgFor } from '@angular/common';
 export class ProductosComponent {
   public category
   productos: any
-
+  imagenDefault = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQunrIhOSUUk2Qko66dLjww5zyenkkguPB_XA&s'
+  
   constructor(
     public globalText: GlobalText, 
     public router: Router,
