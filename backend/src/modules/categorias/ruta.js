@@ -1,5 +1,7 @@
 import express from 'express'
-import pool from '../../config.js'
+import pool from '../../utils/mysql.js'
+import upload from '../../middleware/multer.js'
+import cloudinary from '../../utils/cloudinary.js'
 
 const router = express.Router()
 
@@ -13,7 +15,7 @@ router.get('/', async (_, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
   const { nombre } = req.body
 
   const categoria = await buscarCategoriaByNombre(nombre)
@@ -22,7 +24,10 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    await pool.query('INSERT INTO categorias (nombre) VALUES (?)', nombre)
+    const result = await cloudinary.uploader.upload(req.file.path)
+    const imageUrl = result.secure_url
+
+    await pool.query('INSERT INTO categorias (nombre) VALUES (?, ?)', [nombre, imageUrl])
     res.status(201).json({ mensaje: `Se creó la categoría ${nombre} con exito` })
   } catch (error) {
     console.log('Error al crear categoría: ', error)
@@ -30,7 +35,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', upload.single('image'), async (req, res) => {
   const { id } = req.params
   const body = req.body
   // TODO: falta validar si el nombre de la nueva categoria existe
@@ -42,7 +47,10 @@ router.patch('/:id', async (req, res) => {
   }
 
   try {
-    await pool.query('UPDATE categorias SET nombre = ? WHERE id = ?', [body.nombre, id])
+    const result = await cloudinary.uploader.upload(req.file.path)
+    const imageUrl = result.secure_url
+
+    await pool.query('UPDATE categorias SET nombre = ?, ruta_imagen = ? WHERE id = ?', [body.nombre, imageUrl, id])
     res.status(201).json({
       mensaje: 'Se actualizó la categoría con éxito',
       data: body

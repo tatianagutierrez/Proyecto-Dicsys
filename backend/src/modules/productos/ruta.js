@@ -1,5 +1,7 @@
 import express from 'express'
-import pool from '../../config.js'
+import pool from '../../utils/mysql.js'
+import upload from '../../middleware/multer.js'
+import cloudinary from '../../utils/cloudinary.js'
 
 const router = express.Router()
 
@@ -25,7 +27,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
   const { nombre, descripcion, fecha_vencimiento: fechaVencimiento, precio, stock, id_categoria: idCategoria } = req.body
   const body = req.body
 
@@ -35,7 +37,14 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    await pool.query('INSERT INTO productos (nombre, descripcion, fecha_vencimiento, precio, stock, id_categoria) VALUES (?, ?, ?, ?, ?, ?)', [nombre, descripcion, fechaVencimiento, precio, stock, idCategoria])
+    const result = await cloudinary.uploader.upload(req.file.path)
+    const imageUrl = result.secure_url
+
+    await pool.query(
+      'INSERT INTO productos (nombre, descripcion, fecha_vencimiento, precio, stock, id_categoria, ruta_imagen) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [nombre, descripcion, fechaVencimiento, precio, stock, idCategoria, imageUrl]
+    )
+
     res.status(201).json({
       mensaje: `Se creó la categoría ${nombre} con exito`,
       data: body
