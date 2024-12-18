@@ -1,21 +1,75 @@
-.center {
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 75%;
   margin: 0px auto;
 }
 
-#contenido {
-  width: 100%;
+.productos {
+  margin-top: 30px;
+  width: 40%;
   float: left;
   min-height: 450px;
   margin-right: 20px;
 }
 
+.titulo-categoria {
+  font-family: "Irish Grover", system-ui;
+  font-size: 4rem;
+  color: #FF4500;
+  margin-bottom: 28px;
+  margin-top: 28px;
+}
+
+#listProductos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-prod {
+  display: flex;
+  align-items: flex-start;
+  background-color: #edd2b4;
+  padding: 15px;
+  border-radius: 8px;
+}
+
 .image-wrap {
-  width: 75%;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .image-wrap img {
+  width: 180px;
+  height: auto;
+  border-radius: 100px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+  font-family: IBM Plex Mono, sans-serif;
+}
+
+.text-content h2 {
+  margin-bottom: 12px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.text-content span {
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+.text-content button {
   width: 50%;
-  height: 210px;
-  object-fit: cover;
+  margin-top: 20px;
+  padding: 5px 10px;
+  font-size: 1em;
+  cursor: pointer;
 }

@@ -1,30 +1,26 @@
 <app-header />
-<div class="center">
+<div class="container">
   <div id="contenido">
-    <div class="Productos">
-      <h1>{{ globalText.products }} de: {{ category.nombre }}</h1>
+    <h1 class="titulo-categoria">{{ globalText.products }} de: {{ category.nombre }}</h1>
+    <div class="productos">
       <div id="listProductos">
-        <article
-          class="item-prod"
-          id="article-template"
-          *ngFor = "let prod of productos"    
-        >
+        <article class="item-prod" *ngFor="let prod of productos">
           <div class="image-wrap">
             <img [src]="prod.ruta_imagen ? prod.ruta_imagen : imagenDefault" alt="comida" />
           </div>
-          <h2>{{ prod.nombre }}</h2>
-          <div class="cont-spanProd">
-            <span class="span-cardProd">{{ globalText.description }}:</span><br />
+          <div class="text-content">
+            <h2>{{ prod.nombre }}</h2>
+            <div class="cont-spanProd">
+              <span class="span-cardProd">{{ globalText.description }}: {{ prod.descripcion }}</span>
+            </div>
+            <span class="precio-prod">{{ globalText.price }}: {{ prod.precio }}</span>
+            <span class="stock-prod">{{ globalText.stock }}: {{ prod.stock }}</span>
+            <span><b>- {{ globalText.category }}: {{ category.nombre }}</b></span>
+            <button (click)="eliminarProducto(prod.id)">+ {{ globalText.delete }}</button>
           </div>
-          <span class="precio-prod">{{ globalText.price }}: {{ prod.precio }}</span
-          ><br />
-          <span class="stock-prod">{{ globalText.stock }}: 13</span><br />
-          <span
-            ><b>- {{ globalText.category }}: {{ category.nombre }}</b></span
-          >
-          <button>+ {{ globalText.cart }}</button>
         </article>
-      </div>
+      </div>      
     </div>
   </div>
 </div>
+<app-footer />
