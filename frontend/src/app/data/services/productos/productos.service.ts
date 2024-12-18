@@ -18,4 +18,8 @@ export class ProductosService {
   public eliminarProducto(id: number){
     return this.http.delete(this.url + id)
   }
+
+  public createProduct(formData: any){
+    return this.http.post(this.url, formData)
+  }
 }

@@ -13,4 +13,6 @@ export class GlobalText {
   public viewProducts: string = 'Ver productos'
   public categoryTitle: string = 'NUESTRAS CATEGORÍAS'
   public delete: string = 'Eliminar'
+  //public edit: string = 'Editar'
+  public uploadProduct: string = 'Agregar producto'
 }                         
