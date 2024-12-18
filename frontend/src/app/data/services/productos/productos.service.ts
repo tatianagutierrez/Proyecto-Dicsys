@@ -11,8 +11,11 @@ export class ProductosService {
 
   constructor(private http:HttpClient) { }
 
-  // TODO: HACER ANDAR
   public getProductosByCategoria(categoriaId: number){
     return this.http.get(this.url + categoriaId)
+  }
+
+  public eliminarProducto(id: number){
+    return this.http.delete(this.url + id)
   }
 }

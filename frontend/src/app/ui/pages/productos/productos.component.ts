@@ -15,9 +15,10 @@ import { NgFor } from '@angular/common';
 })
 export class ProductosComponent {
   public category
-  productos: any
+  productos: any;
   imagenDefault = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQunrIhOSUUk2Qko66dLjww5zyenkkguPB_XA&s'
   
+
   constructor(
     public globalText: GlobalText, 
     public router: Router,
@@ -29,12 +30,20 @@ export class ProductosComponent {
     if (navigability && navigability.extras && navigability.extras.state) {
       const data = navigability.extras.state
       this.category = data['category']; 
-    } 
+      
+    }   
 
     this.productosService.getProductosByCategoria(this.category.id).subscribe(result => {
       this.productos = result
     })
 
+  }
+
+  eliminarProducto(id: number) {
+    this.productosService.eliminarProducto(id).subscribe(result => {
+      console.log(result)
+      location.reload()
+    })
   }
 
 }

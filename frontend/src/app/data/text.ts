@@ -12,4 +12,5 @@ export class GlobalText {
   public footer: string = 'Dicsys Kiosko © Copyright 2024, Made By Tatiana Gutiérrez'
   public viewProducts: string = 'Ver productos'
   public categoryTitle: string = 'NUESTRAS CATEGORÍAS'
+  public delete: string = 'Eliminar'
 }                         
