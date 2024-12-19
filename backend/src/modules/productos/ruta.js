@@ -31,14 +31,18 @@ router.post('/', upload.single('image'), async (req, res) => {
   const { nombre, descripcion, fecha_vencimiento: fechaVencimiento, precio, stock, id_categoria: idCategoria } = req.body
   const body = req.body
 
+  let imageUrl = null
+
   const producto = await buscarProductoByNombre(nombre)
   if (producto) {
     return res.status(400).json({ mensaje: 'El producto ya existe' })
   }
 
   try {
-    const result = await cloudinary.uploader.upload(req.file.path)
-    const imageUrl = result.secure_url
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path)
+      imageUrl = result.secure_url
+    }
 
     await pool.query(
       'INSERT INTO productos (nombre, descripcion, fecha_vencimiento, precio, stock, id_categoria, ruta_imagen) VALUES (?, ?, ?, ?, ?, ?, ?)',
@@ -46,7 +50,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     )
 
     res.status(201).json({
-      mensaje: `Se creó la categoría ${nombre} con exito`,
+      mensaje: `Se creó el producto ${nombre} con exito`,
       data: body
     })
   } catch (error) {
