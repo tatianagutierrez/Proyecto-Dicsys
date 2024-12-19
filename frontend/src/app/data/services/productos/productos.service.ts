@@ -12,7 +12,7 @@ export class ProductosService {
   constructor(private http:HttpClient) { }
 
   public getProductosByCategoria(categoriaId: number){
-    return this.http.get(this.url + categoriaId)
+    return this.http.get(this.url + 'categoria/' + categoriaId)
   }
 
   public eliminarProducto(id: number){

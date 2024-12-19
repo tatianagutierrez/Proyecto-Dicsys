@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../../data/services/productos/productos.service';
 import { CategoriasService } from '../../../data/services/categorias/categorias.service';
 import { GlobalText } from '../../../data/text';
+import { UrlNavigateService } from '../../../data/services/url-navigate.service';
+import { GlobalUrl } from '../../../data/util';
 
 @Component({
   selector: 'app-form',
@@ -26,6 +28,8 @@ export class FormComponent {
     private http: HttpClient, 
     public productosService: ProductosService,
     public categoriasService: CategoriasService,
+    public urlNavigateService: UrlNavigateService,
+    public globalUrl: GlobalUrl
   ) 
   {
     this.productoForm = this.fb.group({
@@ -68,6 +72,7 @@ export class FormComponent {
 
     this.productosService.createProduct(formData).subscribe(response => {
       console.log('Producto creado con éxito', response);
+      this.urlNavigateService.navigateURL(this.globalUrl.home)
     }, error => {
       console.error('Error al crear el producto', error);
     });
