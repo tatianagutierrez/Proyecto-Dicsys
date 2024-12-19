@@ -36,7 +36,7 @@
   <a name="documentacion"></a>
   ## 📝 Documentación
 
-  Link de la <a href="[#ir-arriba](https://documenter.getpostman.com/view/17933955/2sAYJ3DLtT)">Documentación</a>
+  Link de la <a href="https://documenter.getpostman.com/view/17933955/2sAYJ3DLtT">Documentación</a>
 
   Para probarla deberas apretar el botón de 'Run in postman'.
 
