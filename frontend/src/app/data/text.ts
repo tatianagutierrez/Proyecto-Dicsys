@@ -3,6 +3,7 @@ export class GlobalText {
   public category: string = 'Categoría'
   public login: string = 'Login'
   public cart: string = 'Carrito'
+  public add: string = 'Agregar'
   public welcome: string = 'Kiosco Dicsyano'
   public schedule: string = 'Lunes a viernes de 9 a 18'
   public description: string = 'Descripción'
@@ -14,5 +15,5 @@ export class GlobalText {
   public categoryTitle: string = 'NUESTRAS CATEGORÍAS'
   public delete: string = 'Eliminar'
   //public edit: string = 'Editar'
-  public uploadProduct: string = 'Agregar producto'
+  public addProduct: string = 'Agregar producto'
 }                         

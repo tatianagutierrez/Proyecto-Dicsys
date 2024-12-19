@@ -1,11 +1,10 @@
 #footer {
   background: #ed6114;
   padding: 1rem 9;
-  position: relative;
   margin-top: 0;
-  bottom: 0;
   text-align: center;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   width: 100%;
 }
 

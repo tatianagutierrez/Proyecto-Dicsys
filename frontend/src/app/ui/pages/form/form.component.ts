@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../../data/services/productos/productos.service';
 import { CategoriasService } from '../../../data/services/categorias/categorias.service';
+import { GlobalText } from '../../../data/text';
 
 @Component({
   selector: 'app-form',
@@ -20,10 +21,12 @@ export class FormComponent {
   selectedFile: File | null = null;
 
   constructor(
+    public globalText: GlobalText, 
     private fb: FormBuilder, 
     private http: HttpClient, 
     public productosService: ProductosService,
-    public categoriasService: CategoriasService) 
+    public categoriasService: CategoriasService,
+  ) 
   {
     this.productoForm = this.fb.group({
       nombre: ['', Validators.required],
