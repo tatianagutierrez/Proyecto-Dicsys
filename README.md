@@ -12,6 +12,7 @@
   <ol>
     <li><a href="#ir-arriba">Título y descripción del proyecto</a></li>
     <li><a href="#tecnologias">Tecnologías utilizadas</a></li>
+    <li><a href="#capturas">Capturas de la Aplicación</a></li>
     <li><a href="#documentacion">Documentación</a></li>
     <li><a href="#funcionalidad">Funcionalidad de la App</a></li>
     <li><a href="#desarrolladores">Desarrolladores</a></li>
@@ -31,6 +32,16 @@
   </p>
   <p align="right">(<a href="#ir-arriba">Ir arriba</a>)</p>
 
+<a name="capturas"></a>
+  ## 📸 Capturas de la Aplicación
+  
+![slider](https://github.com/user-attachments/assets/de91d27c-32bd-4eba-acf8-fb89ba0231f3)
+
+![categorias](https://github.com/user-attachments/assets/f6747360-055e-41fa-91b9-3d2976713d85)
+
+![form](https://github.com/user-attachments/assets/0a0e61c1-5483-4711-9fa9-d5dfe89af56a)
+
+<p align="right">(<a href="#ir-arriba">Ir arriba</a>)</p>
   
 <!-- DOCUMENTACIÓN -->
   <a name="documentacion"></a>
