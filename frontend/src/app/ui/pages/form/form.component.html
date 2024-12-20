@@ -41,7 +41,7 @@
       <input type="file" id="image" (change)="onFileSelected($event)" class="form-input" />
     </div>
 
-    <button type="submit" class="btn" [disabled]="productoForm.invalid">Agregar Producto</button>
+    <button type="submit" class="btn" [disabled]="productoForm.invalid">{{ globalText.add }}</button>
   </form>
 </div>
 
